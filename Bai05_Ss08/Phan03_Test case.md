@@ -1,4 +1,4 @@
-ách lamPhần 3 - Kịch bản test rủi ro (dữ liệu độc hại)
+Kịch bản test rủi ro (dữ liệu độc hại)
 Sai mã tour + ngày đảo ngược + giá âm
 Input: tourCode=ABC_12, adultPrice=-100, childPrice=999999, startDate=2026-05-10, endDate=2026-05-01
 Hệ thống chặn:
