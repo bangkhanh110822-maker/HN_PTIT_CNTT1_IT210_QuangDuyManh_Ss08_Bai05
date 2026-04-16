@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Tour</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            margin-bottom: 12px;
+        }
+
+        .field {
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+<h2>Tao moi Tour Du lich</h2>
+
+<p class="success" th:if="${successMessage}" th:text="${successMessage}"></p>
+
+<form th:action="@{/tours/create}" th:object="${tourDto}" method="post">
+    <div class="field">
+        <label for="tourCode">Ma Tour:</label>
+        <input id="tourCode" type="text" th:field="*{tourCode}" placeholder="VN_12345 hoac INT_12345">
+        <div class="error" th:if="${#fields.hasErrors('tourCode')}" th:errors="*{tourCode}"></div>
+    </div>
+
+    <div class="field">
+        <label for="adultPrice">Gia Nguoi Lon:</label>
+        <input id="adultPrice" type="number" step="0.01" th:field="*{adultPrice}">
+        <div class="error" th:if="${#fields.hasErrors('adultPrice')}" th:errors="*{adultPrice}"></div>
+    </div>
+
+    <div class="field">
+        <label for="childPrice">Gia Tre Em:</label>
+        <input id="childPrice" type="number" step="0.01" th:field="*{childPrice}">
+        <div class="error" th:if="${#fields.hasErrors('childPrice')}" th:errors="*{childPrice}"></div>
+    </div>
+
+    <div class="field">
+        <label for="startDate">Ngay Khoi Hanh:</label>
+        <input id="startDate" type="date" th:field="*{startDate}">
+        <div class="error" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
+    </div>
+
+    <div class="field">
+        <label for="endDate">Ngay Ket Thuc:</label>
+        <input id="endDate" type="date" th:field="*{endDate}">
+        <div class="error" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></div>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
+
